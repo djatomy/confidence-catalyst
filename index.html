@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Confidence Catalyst | 本来の輝きへ回帰する</title>
+    <meta name="description" content="対面戦略シミュレーター。科学的根拠に基づく静かな儀式で、あなたの本来の輝きを引き出し、確信へと回帰させます。">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Meta tags for PWA and UX -->
+    <meta name="theme-color" content="#0A0A0A">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+    <div id="background-gradient"></div>
+    <div id="flash-overlay"></div>
+
+    <!-- Screen 1: Entry -->
+    <div id="entry-screen" class="screen active" style="padding: 0;">
+        <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px;">
+            <h1 class="title-large">Entry</h1>
+            <p class="subtitle">こころを整える</p>
+        </div>
+        
+        <div class="bottom-sheet">
+            <div class="input-group">
+                <label class="input-label">お名前</label>
+                <input type="text" id="input-name" class="minimal-input" placeholder="Type your presence..." autocomplete="off">
+                <span class="status-text">整えています…</span>
+            </div>
+            
+            <div class="input-group">
+                <label class="input-label">生年月日</label>
+                <input type="text" id="input-date" class="minimal-input" placeholder="YYYY.MM.DD" autocomplete="off">
+                <span class="status-text">整えています…</span>
+            </div>
+            
+            <div class="input-group">
+                <label class="input-label">お相手のお名前</label>
+                <input type="text" id="input-partner-name" class="minimal-input" placeholder="（任意）面談する方の名前" autocomplete="off">
+                <span class="status-text">整えています…</span>
+            </div>
+            
+            <div class="input-group">
+                <label class="input-label">お相手のタイプ（もしわかれば）</label>
+                <select id="input-partner-type" class="minimal-input" style="background-color: transparent;">
+                    <option value="none" style="color:#0A0A0A;">指定しない / わからない</option>
+                    <option value="3" style="color:#0A0A0A;">成果や数値を気にする（達成者）</option>
+                    <option value="4" style="color:#0A0A0A;">「特別感」を大事にする（個性派）</option>
+                    <option value="6" style="color:#0A0A0A;">慎重で安全を第一にする（忠実家）</option>
+                    <option value="8" style="color:#0A0A0A;">堂々として、自分で決めたい（挑戦者）</option>
+                    <option value="9" style="color:#0A0A0A;">みんなの和を重んじる（調停者）</option>
+                </select>
+                <span class="status-text">整えています…</span>
+            </div>
+            
+            <p class="subtitle" style="margin-bottom: 20px;">あなたの属性を選択</p>
+            <div class="attribute-selector">
+                <button class="attr-btn" data-attr="light" style="gap: 4px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                    <span style="font-size: 0.8rem; font-weight: bold; margin-top: 2px;">光</span>
+                    <span style="font-size: 0.55rem; color: rgba(61, 59, 58, 0.6); margin-top: 4px;">枠に囚われない直感とひらめき</span>
+                </button>
+                <button class="attr-btn" data-attr="earth" style="gap: 4px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/></svg>
+                    <span style="font-size: 0.8rem; font-weight: bold; margin-top: 2px;">地</span>
+                    <span style="font-size: 0.55rem; color: rgba(61, 59, 58, 0.6); margin-top: 4px;">周囲を包む揺るぎなき安定</span>
+                </button>
+                <button class="attr-btn" data-attr="moon" style="gap: 4px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <span style="font-size: 0.8rem; font-weight: bold; margin-top: 2px;">月</span>
+                    <span style="font-size: 0.55rem; color: rgba(61, 59, 58, 0.6); margin-top: 4px;">人々に寄り添う豊かな共感力</span>
+                </button>
+                <button class="attr-btn" data-attr="forest" style="gap: 4px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L12 22M6 8L12 2L18 8M6 14L12 8L18 14"/></svg> <!-- tree outline icon -->
+                    <span style="font-size: 0.8rem; font-weight: bold; margin-top: 2px;">森</span>
+                    <span style="font-size: 0.55rem; color: rgba(61, 59, 58, 0.6); margin-top: 4px;">本質を守り育む静かな包容力</span>
+                </button>
+            </div>
+            
+            <button id="btn-sync-start" class="btn-primary">ENTER THE SANCTUARY</button>
+        </div>
+    </div>
+
+    <!-- Screen 2: Sync -->
+    <div id="sync-screen" class="screen">
+        <h2 class="title-large" style="font-size: 2rem;">Wait</h2>
+        <p class="subtitle">あなたに合わせています</p>
+        
+        <div class="sync-container">
+            <div id="sync-orb" class="sync-orb">
+                <span style="font-family: var(--font-serif); color: var(--accent-color); font-size: 0.9rem; letter-spacing: 0.1em;">長押しする</span>
+            </div>
+            <p id="sync-text" class="sync-text">あなたにぴったりの言葉を探しています…</p>
+        </div>
+    </div>
+
+    <!-- Screen 3: Insight -->
+    <div id="insight-screen" class="screen">
+        <h2 class="title-large" style="font-size: 1.8rem; margin-top:20px;">いまのあなた</h2>
+        <p class="subtitle" style="margin-bottom: 20px;">すごく良い状態です</p>
+        
+        <div class="score-container">
+            <div class="score-box">
+                <div id="score-confidence" class="score-value">92</div>
+                <div class="score-label">こころのパワー</div>
+            </div>
+            <div class="score-box">
+                <div id="score-resonance" class="score-value">95</div>
+                <div class="score-label">相手への伝わりやすさ</div>
+            </div>
+        </div>
+        
+        <div class="symbol-display">
+            <div class="symbol-icon" id="insight-symbol-icon">👑</div>
+            <div class="symbol-name" id="insight-symbol-name">王冠</div>
+            <div class="subtitle" id="insight-symbol-desc">揺るぎない威厳。周囲を照らし、導く圧倒的な存在感。</div>
+        </div>
+        
+        <div id="insight-image-container" style="text-align: center; margin-bottom: 24px;">
+            <img id="insight-image" src="" style="width: 100%; max-width: 400px; height: 180px; object-fit: cover; border-radius: 16px; opacity: 0; animation: fadeUp 1s ease forwards; animation-delay: 0.1s; border: 1px solid rgba(0,0,0,0.05);">
+        </div>
+        
+        <div class="card glass" style="animation-delay: 0.2s;">
+            <p class="input-label" style="color:var(--accent-color);">あなたとお相手の相性</p>
+            <p id="insight-name-text" class="insight-text"></p>
+        </div>
+        
+        <div class="card glass" style="animation-delay: 0.4s;">
+            <p class="input-label" style="color:var(--accent-color);">あなたの生まれ持ったチカラ</p>
+            <p id="insight-fate-text" class="insight-text"></p>
+        </div>
+        
+        <div class="card glass" style="animation-delay: 0.6s; margin-bottom: 80px;">
+            <p class="input-label" style="color:var(--accent-color);">今日の面談のヒント</p>
+            <p id="insight-advice-text" class="insight-text"></p>
+        </div>
+        
+        <button id="btn-release-start" class="btn-primary btn-continue">次へ進む</button>
+    </div>
+
+    <!-- Screen 4: Release -->
+    <div id="release-screen" class="screen">
+        <div class="space-40"></div>
+        <p id="release-msg-1" class="release-msg">今日、この時間は、あなたのためのものです</p>
+        <p id="release-msg-2" class="release-msg">相手もまた、あなたとの対話を待ち望んでいます</p>
+        <p id="release-msg-3" class="release-msg">深く、静かな呼吸を一つ。それで準備は整いました</p>
+        <div class="space-40"></div>
+        
+        <button id="btn-final" class="btn-final">いってきます</button>
+        <div class="space-40"></div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
